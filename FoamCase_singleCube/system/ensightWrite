@@ -1,0 +1,37 @@
+// -*- C++ -*-
+// Minimal example of using the ensight write function object.
+// Many more options possible
+ensightWrite
+{
+    type    ensightWrite;
+    libs    (utilityFunctionObjects);
+    log     true;
+
+    // Fields to output (words or regex)
+    fields  (U p );
+
+    writeControl    writeTime;
+    writeInterval   1;
+	format ascii;
+	
+
+    selection
+    {
+        box
+        {
+            action  use;
+            source  box;
+            box     (-7 -5 -0.5) (7 5 0.5);
+        }
+        dome
+        {
+            action  add;
+            source   sphere;
+            origin  (0	0	0);
+            radius  5;
+        }
+        
+    }
+}
+
+// ************************************************************************* //
