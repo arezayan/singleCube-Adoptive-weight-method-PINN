@@ -298,6 +298,7 @@ for epo in range(epo_adam):
     loss , momentum_loss , loss_data , loss_BC , continuity_loss = adop_loss_Weight(model, x, y, z, u_exact, v_exact , w_exact , p_exact ,
                x_b, y_b, z_b, u_b, v_b, w_b ,p_b)
     loss.backward()
+    optimizer_adam.step()  #updating values
     if epo %500 == 0:
       print(f'Epoch Adam {epo}, Total Loss: {loss.item():.5f}')
     if loss.item() <=0.5 :
